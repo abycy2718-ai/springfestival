@@ -27,7 +27,7 @@
     '辛桐，新年快乐',
     '新春快乐 · 永远爱你',
     '万事如意 · May everything go well',
-    'With love, from 叶 to 辛桐',
+    'With love, from your 叶',
     'To 辛桐: 马到成功，心想事成',
     'Wishing you joy — love, Allen',
     '阖家幸福 · 爱你',
