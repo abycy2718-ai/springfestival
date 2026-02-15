@@ -20,7 +20,7 @@
 
   const MILUNA_MESSAGES = [
     'Happy Year of the Horse!',
-    'Happy 2026!',
+    'Happy 2026 辛桐!',
     'To my dearest Miluna, from Allen',
     'Love from your Allen',
     '想着你的叶',
