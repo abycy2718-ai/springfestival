@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新春祝福 · Spring Festival Wishes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Key gate overlay -->
+  <div id="gate" class="gate">
+    <div class="gate-bg"></div>
+    <div class="gate-content">
+      <div class="gate-lanterns">
+        <span class="lantern left">🏮</span>
+        <span class="lantern right">🏮</span>
+      </div>
+      <h1 class="gate-title">新春祝福</h1>
+      <p class="gate-subtitle">Spring Festival Wishes</p>
+      <form id="gate-form" class="gate-form">
+        <input type="password" id="key-input" placeholder="Enter your key 输入密钥" autocomplete="off" />
+        <button type="submit">进入 Enter</button>
+      </form>
+      <p id="gate-error" class="gate-error" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <!-- General experience (key: 2026) -->
+  <div id="main-general" class="main main-general hidden">
+    <canvas id="fireworks-canvas-general" class="fireworks-canvas" aria-hidden="true"></canvas>
+    <canvas id="particles-canvas-general" class="particles-canvas" aria-hidden="true"></canvas>
+    <div class="main-bg">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+      <div class="bg-deco">
+        <span class="deco deco-lantern deco-1">🏮</span>
+        <span class="deco deco-lantern deco-2">🏮</span>
+        <span class="deco deco-fu deco-3">福</span>
+        <span class="deco deco-fu deco-4">福</span>
+        <span class="deco deco-gold deco-5">✦</span>
+        <span class="deco deco-gold deco-6">✦</span>
+        <span class="deco deco-gold deco-7">✦</span>
+      </div>
+      <div class="paper-texture"></div>
+      <div class="horse-symbol" aria-hidden="true">马</div>
+    </div>
+    <header class="banner banner-general" aria-label="来自小叶的祝福">
+      <span class="banner-text">来自小叶的祝福</span>
+    </header>
+    <div class="messages-container" id="messages-container-general" aria-live="polite"></div>
+    <footer class="main-footer">
+      <span class="footer-text">新年快乐 · 万事如意</span>
+    </footer>
+  </div>
+
+  <!-- Miluna experience (key: Miluna) – love + gallery -->
+  <div id="main-miluna" class="main main-miluna hidden">
+    <canvas id="fireworks-canvas-miluna" class="fireworks-canvas" aria-hidden="true"></canvas>
+    <canvas id="particles-canvas-miluna" class="particles-canvas" aria-hidden="true"></canvas>
+    <div class="main-bg">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+      <div class="bg-deco">
+        <span class="deco deco-lantern deco-1">🏮</span>
+        <span class="deco deco-lantern deco-2">🏮</span>
+        <span class="deco deco-fu deco-3">福</span>
+        <span class="deco deco-fu deco-4">福</span>
+        <span class="deco deco-gold deco-5">✦</span>
+        <span class="deco deco-gold deco-6">✦</span>
+        <span class="deco deco-gold deco-7">✦</span>
+      </div>
+      <div class="paper-texture"></div>
+      <div class="horse-symbol" aria-hidden="true">马</div>
+    </div>
+    <header class="banner banner-miluna" aria-label="爱你的小叶">
+      <span class="banner-text">爱你的小叶</span>
+    </header>
+    <section class="miluna-content">
+      <div class="messages-container" id="messages-container-miluna" aria-live="polite"></div>
+      <section class="gallery-section" id="gallery-section">
+        <h2 class="gallery-title">我们的时光 · Our Moments</h2>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </section>
+    </section>
+    <footer class="main-footer">
+      <span class="footer-text">辛桐 · 新年快乐 · 永远爱你</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
