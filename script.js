@@ -21,11 +21,11 @@
   const MILUNA_MESSAGES = [
     'Happy Year of the Horse!',
     'Happy 2026!',
-    'To my dearest Miluna💖, from Allen',
+    'To my dearest Miluna, from Allen',
     'Love from your Allen',
     '想着你的叶',
     '辛桐，新年快乐',
-    '新春快乐 · 永远爱你🏮',
+    '新春快乐 · 永远爱你',
     '万事如意 · May everything go well',
     'With love, from 叶 to 辛桐',
     'To 辛桐: 马到成功，心想事成',
@@ -101,17 +101,13 @@
     audio.pause();
     audio.currentTime = 0;
     audio.volume = 0.5;
-    var playPromise = audio.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(function () { /* no audio file or autoplay blocked */ });
-    }
     toggle.setAttribute('aria-label', 'Mute background music');
     toggle.title = 'Mute music';
     toggle.textContent = '🎵';
     toggle.classList.remove('muted');
     toggle.onclick = function () {
       if (audio.paused) {
-        audio.play();
+        audio.play().catch(function () {});
         toggle.textContent = '🎵';
         toggle.classList.remove('muted');
         toggle.setAttribute('aria-label', 'Mute background music');
@@ -124,6 +120,10 @@
         toggle.title = 'Play music';
       }
     };
+    var playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(function () { /* autoplay blocked or file failed – user can click 🎵 to start */ });
+    }
   }
 
   gateForm.addEventListener('submit', function (e) {
