@@ -20,14 +20,14 @@
 
   const MILUNA_MESSAGES = [
     'Happy Year of the Horse!',
-    'Happy 2026 辛桐!',
-    'To my dearest Miluna, from Allen',
+    'Happy 2026!',
+    'To my dearest Miluna💖, from Allen',
     'Love from your Allen',
     '想着你的叶',
     '辛桐，新年快乐',
-    '新春快乐 · 永远爱你',
+    '新春快乐 · 永远爱你🏮',
     '万事如意 · May everything go well',
-    'With love, from your 叶',
+    'With love, from 叶 to 辛桐',
     'To 辛桐: 马到成功，心想事成',
     'Wishing you joy — love, Allen',
     '阖家幸福 · 爱你',
@@ -59,6 +59,8 @@
   const gateForm = document.getElementById('gate-form');
   const keyInput = document.getElementById('key-input');
   const gateError = document.getElementById('gate-error');
+  const audioGeneral = document.getElementById('audio-general');
+  const audioMiluna = document.getElementById('audio-miluna');
 
   // ===== Key gate =====
   function getMode(key) {
@@ -81,12 +83,47 @@
       initGallery();
       startFireworks('fireworks-canvas-miluna');
       startParticles('particles-canvas-miluna');
+      startMusic('miluna');
     } else {
       mainGeneral.classList.remove('hidden');
       startShowingMessages('general');
       startFireworks('fireworks-canvas-general');
       startParticles('particles-canvas-general');
+      startMusic('general');
     }
+  }
+
+  // ===== Background music =====
+  function startMusic(mode) {
+    var audio = mode === 'miluna' ? audioMiluna : audioGeneral;
+    var toggle = document.getElementById('music-toggle-' + mode);
+    if (!audio || !toggle) return;
+    audio.pause();
+    audio.currentTime = 0;
+    audio.volume = 0.5;
+    var playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(function () { /* no audio file or autoplay blocked */ });
+    }
+    toggle.setAttribute('aria-label', 'Mute background music');
+    toggle.title = 'Mute music';
+    toggle.textContent = '🎵';
+    toggle.classList.remove('muted');
+    toggle.onclick = function () {
+      if (audio.paused) {
+        audio.play();
+        toggle.textContent = '🎵';
+        toggle.classList.remove('muted');
+        toggle.setAttribute('aria-label', 'Mute background music');
+        toggle.title = 'Mute music';
+      } else {
+        audio.pause();
+        toggle.textContent = '🔇';
+        toggle.classList.add('muted');
+        toggle.setAttribute('aria-label', 'Play background music');
+        toggle.title = 'Play music';
+      }
+    };
   }
 
   gateForm.addEventListener('submit', function (e) {
