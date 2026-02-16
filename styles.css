@@ -327,6 +327,39 @@ body {
 .main .miluna-content,
 .main .main-footer { z-index: 2; }
 
+/* Music toggle (fixed corner, both views) – high z-index so it stays on top */
+.music-toggle {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 999;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  background: rgba(139, 21, 56, 0.85);
+  color: var(--gold-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.music-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  background: rgba(166, 30, 60, 0.9);
+}
+.music-toggle.muted {
+  opacity: 0.8;
+}
+.music-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4);
+}
+
 .messages-container {
   position: relative;
   z-index: 1;
